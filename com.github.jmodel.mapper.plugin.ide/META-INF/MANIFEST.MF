@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.github.jmodel.mapper.plugin.ide
+Bundle-SymbolicName: com.github.jmodel.mapper.plugin.ide;singleton:=true
+Bundle-Version: 0.0.1
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: com.github.jmodel.mapper.plugin.ide.contentassist.antlr,
+ com.github.jmodel.mapper.plugin.ide.contentassist.antlr.internal
+Require-Bundle: org.antlr.runtime,
+ org.eclipse.xtext.xbase.lib,
+ com.github.jmodel.mapper.plugin,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+

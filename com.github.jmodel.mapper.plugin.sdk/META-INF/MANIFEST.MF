@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Sdk
+Bundle-SymbolicName: com.github.jmodel.mapper.plugin.sdk
+Bundle-Version: 0.0.1
