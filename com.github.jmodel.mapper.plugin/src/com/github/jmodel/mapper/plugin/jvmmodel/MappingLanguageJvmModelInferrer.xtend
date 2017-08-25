@@ -22,13 +22,16 @@ import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
  */
 class MappingLanguageJvmModelInferrer extends AbstractModelInferrer {
 
+	val _MAPPING = "com.github.jmodel.mapper.api.domain.Mapping"
+	val _MODEL = "com.github.jmodel.api.domain.Model"
+	val _MODEL_EXCEPTION = "com.github.jmodel.ModelException"
+
 	/**
 	 * convenience API to build and initialize JVM types and their members.
 	 */
 	@Inject extension JvmTypesBuilder
-	
-	//@Inject MappingXbaseCompiler compiler
 
+	// @Inject MappingXbaseCompiler compiler
 	/**
 	 * The dispatch method {@code infer} is called for each instance of the
 	 * given element's type that is contained in a resource.
@@ -55,9 +58,6 @@ class MappingLanguageJvmModelInferrer extends AbstractModelInferrer {
 	 *            <code>true</code>.
 	 */
 	def dispatch void infer(Mapping element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
-
-		val _MAPPING = "com.github.jmodel.mapper.api.domain.Mapping"
-		val _MODEL = "com.github.jmodel.api.domain.Model"
 
 		acceptor.accept(element.toClass(element.name)) [
 
@@ -104,6 +104,7 @@ class MappingLanguageJvmModelInferrer extends AbstractModelInferrer {
 				parameters += element.toParameter("mySourceModel", typeRef(_MODEL))
 				parameters += element.toParameter("myTargetModel", typeRef(_MODEL))
 				parameters += element.toParameter("myVariablesMap", typeRef(Map))
+				exceptions += typeRef(_MODEL_EXCEPTION)
 				annotations += annotationRef("java.lang.Override")
 				body = element.body
 			]
@@ -135,7 +136,6 @@ class MappingLanguageJvmModelInferrer extends AbstractModelInferrer {
 	 * 		
 	 * 	}
 	 */
-	 
 	def genCommonSetting(Mapping element) '''
 		com.github.jmodel.api.domain.Entity sourceRootModel = new com.github.jmodel.api.domain.Entity();
 		myInstance.setSourceTemplateModel(sourceRootModel);
