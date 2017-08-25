@@ -1,0 +1,222 @@
+mapping com.github.jmodel.mapper.plugin.example.CreateRiArap {
+ 
+	from: JSON
+	to: JSON
+	RiFee => Arap {     
+		
+		/*
+		 * business transaction id, policy id?
+		 */
+		BusinessTransactionId => BusinessTransactionId;
+		
+		/*
+		 * Business source, from PA
+		 * Direct:1, Fac Re-in:2,Co-in:3
+		 */
+		BusinessSource => BusinessSource;
+
+		/* 
+		 * Policy No, from PA 
+		 */
+		PolicyNo => PolicyNo; 
+		
+		/*
+		 * Endorsement No, from PA
+		 */
+		EndorsementNo => EndoNo;
+		
+		/*
+		 * Claim No, from Claim
+		 */
+		ClaimNo => ClaimNo;
+		
+		/*
+		* Policy Branch Code, from PA
+		*/
+		BranchCode => BranchCode;
+
+		/*
+         * endorsement expire date, get from PA
+         */
+		EndorsementExpiryDate => EndoExpDate;
+		
+		/*
+         * endorsement effective date, get from PA
+         */
+		EndorsementEffectiveDate => EndoEffDate;
+		
+		/*
+         * Policy expire date, get from PA
+         */
+		PolicyExpiryDate => PolicyExpDate;
+		
+		/*
+         * Policy effective date, get from PA
+         */
+		PolicyEffectiveDate => PolicyEffDate;
+		
+		/*
+         * Policy holder id, get from PA
+         */
+		PolicyHolderId => PolicyholderId;
+		
+		/*
+         * Policy holder code, get from PA
+         */
+		PolicyHolderCode => PolicyholderCode;
+		
+		/*
+		 * Policy holder name, get from PA
+		 */
+		PolicyHolderName => PolicyholderName;
+		
+		/*
+		 * Policy holder country, get from PA
+		 */
+		PolicyHolderCountry => PolicyholderCountry;
+		
+		/*
+		 * Lob code
+		 */
+		LobCode => RiskCategory;
+		
+		/*
+		 * Product code, get from PA
+		 */
+		ProductCode => ProductCode;
+		
+		/*
+		 * 
+		 */
+		RiFeeDetails[] => FeeList[] { 
+			: IsArap == "1"
+			
+			/*
+			 * ARAP fee type
+			 * 
+			 * 300104 : Reinsurance Outward - Premium
+			 * 300306 : Reinsurance Recovery - Claim Settlement
+			 * 300111 : Treaty Outward Quarterly Statement
+			 */
+			FeeType => FeeType;
+			
+			FeeTypeName => FeeTypeName;
+
+			/*
+			 * For inwards, Propotional Fac:1,Non-propotional Fac:2
+			 */
+			RiInFacType => RiFacType;
+			
+			/*
+			 * Propotional Fac:1, Non-propotional Fac:2, Quota Share:3,Surplus:4,XOL Treaty:5
+			 */
+			RiOutType => RiFacOutType;
+			
+			/*
+             * Currency code
+             */
+            CurrencyCode => CurrencyCode;
+
+            /*
+             * Amount in original currency
+             */
+            Amount => Amount;
+
+            /*
+             * Debit:1,Credit:2
+             */
+            Arap => FeeCate;
+
+            /*
+             * Exchange Rate to Booking Currency
+             */
+            AccountEr => AccountEr;
+
+            /*
+             * Amount in booking currency
+             */
+            AccountAmount => AccountAmount;
+
+            /*
+             * SIF:"SIF",OIF:"OIF"
+             */
+            FundType => FundType;
+			
+			/*
+			 * Fronting
+			 */
+			#Fronting => Fronting;
+
+			/*
+			 * Reserve Type
+			 */
+			ReserveType => ReserveType;
+
+			/*
+			 * Date of Loss
+			 */
+			#DateOfLoss => DateOfLoss;
+			
+			/*
+			 * Company code of reinsurer broker
+			 */
+			ReinsurerBrokerCode => RiCompanyCode;
+			
+			/*
+			 * Company name of reinsurer broker
+			 */
+			ReinsurerBrokerName => RiCompanyName;
+			
+			/*
+			 * Location of Reinsurer
+			 */
+			ReinsurerLocationAreaId => RiLocationOfReinsurer;
+			
+			 /*
+			 * Reinsurer category
+			 */
+			ReinsurerCategory => RegUnregAuth;
+			
+			CountryOfReinsurer => RiCountryOfReinsurer;
+			
+			/*
+			 * Tax Code
+			 */
+			TaxCode => TaxCode;
+			
+			/*
+			 * TODO
+			 */
+			ReinsurerId => PartyId;
+			
+			ReinsurerCode => PartyCode;
+			
+			ReinsurerName => PartyName;
+			
+			CountryOfReinsurer => PartyCountry;
+			
+			RelatedCompany => TradingPartner;
+			
+			/*
+			 * fee detail type
+			 * 
+			 * 300104-311 : Fac-Out Premium
+			 * 300104-312 : XOL Premium (MDP / Adjustment)
+			 * 300111-323 : Treaty Outward Statement
+			 */
+			FeeDetailType => FeeDetailType;
+			
+			/*
+			 * ri statement no 
+			 */
+			RiStatementNo => RiSettlementNo;
+			
+			/*
+			 * treay risk category code
+			 */
+			TreatyRiskCategoryCode => TreatyRiskCategCode;
+		};
+
+	};
+
+}   
