@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: com.github.jmodel.mapper.plugin.ide
 Bundle-SymbolicName: com.github.jmodel.mapper.plugin.ide;singleton:=true
-Bundle-Version: 0.0.1
+Bundle-Version: 0.0.2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.github.jmodel.mapper.plugin.ide.contentassist.antlr,

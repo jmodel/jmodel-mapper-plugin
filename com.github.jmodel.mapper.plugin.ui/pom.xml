@@ -7,7 +7,7 @@
 		<relativePath>../com.github.jmodel.mapper.plugin.parent/pom.xml</relativePath>
 		<groupId>com.github.jmodel</groupId>
 		<artifactId>com.github.jmodel.mapper.plugin.parent</artifactId>
-		<version>0.0.1</version>
+		<version>0.0.2</version>
 	</parent>
 
 	<artifactId>com.github.jmodel.mapper.plugin.ui</artifactId>

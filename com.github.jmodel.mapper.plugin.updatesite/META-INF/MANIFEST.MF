@@ -2,4 +2,4 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Updatesite
 Bundle-SymbolicName: com.github.jmodel.mapper.plugin.updatesite
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.0.2

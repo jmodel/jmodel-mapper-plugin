@@ -143,19 +143,15 @@ class MappingLanguageJvmModelInferrer extends AbstractModelInferrer {
 		myInstance.setTargetTemplateModel(targetRootModel); 
 				
 		«IF element.from.name.literal== 'JSON'»								
-			myInstance.setFromFormat(com.github.jmodel.api.format.FormatEnum.JSON);														
+			myInstance.setFromFormat(com.github.jmodel.FormatEnum.JSON);														
 		«ELSEIF element.from.name.literal== 'XML'» 
-			myInstance.setFromFormat(com.github.jmodel.api.format.FormatEnum.XML);	
-		«ELSEIF element.from.name.literal== 'BEAN'» 
-			myInstance.setFromFormat(com.github.jmodel.api.format.FormatEnum.BEAN);	
+			myInstance.setFromFormat(com.github.jmodel.FormatEnum.XML);	
 		«ENDIF»
 		
 		«IF element.to.name.literal== 'JSON'»								
-			myInstance.setToFormat(com.github.jmodel.api.format.FormatEnum.JSON);														
+			myInstance.setToFormat(com.github.jmodel.FormatEnum.JSON);														
 		«ELSEIF element.to.name.literal== 'XML'» 
-			myInstance.setToFormat(com.github.jmodel.api.format.FormatEnum.XML);	
-		«ELSEIF element.to.name.literal== 'BEAN'» 
-			myInstance.setToFormat(com.github.jmodel.api.format.FormatEnum.BEAN);	
+			myInstance.setToFormat(com.github.jmodel.FormatEnum.XML);	
 		«ENDIF»	
 		
 			
