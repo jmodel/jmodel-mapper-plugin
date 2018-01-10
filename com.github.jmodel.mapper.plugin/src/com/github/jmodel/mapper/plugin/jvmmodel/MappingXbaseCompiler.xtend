@@ -167,7 +167,7 @@ class MappingXbaseCompiler extends XbaseCompiler {
 					}
 
 					newLine
-					append('''com.github.jmodel.mapper.utils.MappingHelper.arrayMapping(mySourceModel, myTargetModel, «strSourceModel», «strTargetModel», «strSourceModelPath», «strTargetModelPath», «strIndex», «strIsAppend», «p»,''')
+					append('''com.github.jmodel.mapper.api.utils.MappingHelper.arrayMapping(mySourceModel, myTargetModel, «strSourceModel», «strTargetModel», «strSourceModelPath», «strTargetModelPath», «strIndex», «strIsAppend», «p»,''')
 
 					newLine
 					append('''(String[] «m») ->''')
