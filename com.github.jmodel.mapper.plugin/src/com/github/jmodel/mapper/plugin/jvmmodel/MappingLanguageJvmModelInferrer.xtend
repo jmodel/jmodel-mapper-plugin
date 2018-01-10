@@ -23,7 +23,7 @@ import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 class MappingLanguageJvmModelInferrer extends AbstractModelInferrer {
 
 	val _MAPPING = "com.github.jmodel.mapper.api.domain.Mapping"
-	val _MODEL = "com.github.jmodel.api.domain.Model"
+	val _MODEL = "com.github.jmodel.api.entity.Model"
 	val _MODEL_EXCEPTION = "com.github.jmodel.ModelException"
 
 	/**
@@ -137,9 +137,9 @@ class MappingLanguageJvmModelInferrer extends AbstractModelInferrer {
 	 * 	}
 	 */
 	def genCommonSetting(Mapping element) '''
-		com.github.jmodel.api.domain.Entity sourceRootModel = new com.github.jmodel.api.domain.Entity();
+		com.github.jmodel.api.entity.Entity sourceRootModel = new com.github.jmodel.api.entity.Entity();
 		myInstance.setSourceTemplateModel(sourceRootModel);
-		com.github.jmodel.api.domain.Entity targetRootModel = new com.github.jmodel.api.domain.Entity();
+		com.github.jmodel.api.entity.Entity targetRootModel = new com.github.jmodel.api.entity.Entity();
 		myInstance.setTargetTemplateModel(targetRootModel); 
 				
 		«IF element.from.name.literal== 'JSON'»								

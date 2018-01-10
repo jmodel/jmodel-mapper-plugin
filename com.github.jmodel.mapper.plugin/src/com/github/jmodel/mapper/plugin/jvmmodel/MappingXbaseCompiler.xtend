@@ -167,7 +167,7 @@ class MappingXbaseCompiler extends XbaseCompiler {
 					}
 
 					newLine
-					append('''com.github.jmodel.mapper.api.utils.MappingHelper.arrayMapping(mySourceModel, myTargetModel, «strSourceModel», «strTargetModel», «strSourceModelPath», «strTargetModelPath», «strIndex», «strIsAppend», «p»,''')
+					append('''com.github.jmodel.mapper.utils.MappingHelper.arrayMapping(mySourceModel, myTargetModel, «strSourceModel», «strTargetModel», «strSourceModelPath», «strTargetModelPath», «strIndex», «strIsAppend», «p»,''')
 
 					newLine
 					append('''(String[] «m») ->''')
@@ -298,7 +298,7 @@ class MappingXbaseCompiler extends XbaseCompiler {
 
 					if (Util.isInFilter(expr)) {
 						val f = getName(fullSourceModelPath + "_" + fullTargetModelPath + "_f")
-						append('''com.github.jmodel.api.utils.ModelHelper.getFieldValue(mySourceModel.getFieldPathMap().get(«f» + ".«expr.content»"))''')
+						append('''com.github.jmodel.utils.ModelHelper.getFieldValue(mySourceModel.getFieldPathMap().get(«f» + ".«expr.content»"))''')
 					} else {
 						var String m = null
 						if (expr.absolutePath !== null) {
@@ -308,11 +308,11 @@ class MappingXbaseCompiler extends XbaseCompiler {
 						} else {
 							m = getName(fullSourceModelPath + "_" + fullTargetModelPath + "_m")
 						}
-						append('''com.github.jmodel.api.utils.ModelHelper.getFieldValue(mySourceModel.getFieldPathMap().get(«m»[0] + ".«expr.content»"))''')
+						append('''com.github.jmodel.utils.ModelHelper.getFieldValue(mySourceModel.getFieldPathMap().get(«m»[0] + ".«expr.content»"))''')
 					}
 
 				} else {
-					append('''com.github.jmodel.api.utils.ModelHelper.getFieldValue(mySourceModel.getFieldPathMap().get("«fullSourceModelPath».«expr.content»"))''')
+					append('''com.github.jmodel.utils.ModelHelper.getFieldValue(mySourceModel.getFieldPathMap().get("«fullSourceModelPath».«expr.content»"))''')
 				}
 			}
 			SourceFieldPathXParenthesizedExpression: {
@@ -342,9 +342,9 @@ class MappingXbaseCompiler extends XbaseCompiler {
 			XBinaryOperation: {
 				val operation = expr.getConcreteSyntaxFeatureName()
 				if (Util.isPredict(operation)) {
-					append('''(com.github.jmodel.api.utils.ModelHelper.predict(''')
+					append('''(com.github.jmodel.utils.ModelHelper.predict(''')
 				} else {
-					append('''(com.github.jmodel.api.utils.ModelHelper.calc(''')
+					append('''(com.github.jmodel.utils.ModelHelper.calc(''')
 				}
 				doInternalToJavaStatement(expr.leftOperand, it, isReferenced)
 				append(''',''')
